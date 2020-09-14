@@ -1,0 +1,28 @@
+type Query {
+    # Authentication
+    getToken(token: String!): String
+
+    getMe: User
+    getUser(userId: Float!): User
+}
+type Mutation {
+    # Authentication
+    signIn(email: String!, password: String!): Auth
+    signUp(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+}
+
+type Auth {
+    accessToken: String
+    refreshToken: String
+    user: User
+}
+
+type User {
+    id: ID
+    email: String
+    firstName: String
+    lastName: String
+    createdAt: String
+    updatedAt: String
+    deletedAt: String
+}
